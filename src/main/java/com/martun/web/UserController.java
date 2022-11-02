@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
-    @RequestMapping(value = "/users",
+    @RequestMapping(value = "/getAllUsers",
             produces = "application/json",
             method=RequestMethod.GET)
     private ResponseEntity<List<User>> getAllUsers(){
@@ -23,11 +23,12 @@ public class UserController {
     }
     @RequestMapping(value = "/createUsers",
             produces = "application/json",
-            method=RequestMethod.GET)
-    public void create(@RequestParam(name = "fullName", required = false) String fullName, @RequestParam(name = "age", required = false) int age) {
+            method=RequestMethod.POST)
+    public ResponseEntity<String> createUsers(@RequestParam(name = "fullName", required = false) String fullName, @RequestParam(name = "age", required = false) int age) {
         userService.postUser(fullName, age);
+        return new ResponseEntity<>(fullName + age, HttpStatus.OK);
     }
-    @RequestMapping(value = "/deleteUser",
+    @RequestMapping(value = "/deleteUserById",
             produces = "application/json",
             method=RequestMethod.GET)
     public ResponseEntity<String> deleteUserById(@RequestParam(name = "id") int id){
