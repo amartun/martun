@@ -12,8 +12,21 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.5'
+
 }
 
 test {
     useJUnitPlatform()
+}
+
+ext {
+    javaMainClass = "com.martun.Application"
+}
+
+task runApplication(type: JavaExec) {
+    group = "Execution"
+    description = "Run the main class with JavaExecTask"
+    classpath = sourceSets.main.runtimeClasspath
+    main = javaMainClass
 }
