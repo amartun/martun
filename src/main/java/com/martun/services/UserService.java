@@ -1,13 +1,15 @@
 package com.martun.services;
 
-import com.martun.entity.User;
+import com.martun.dbentity.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
-    List<User> getAllUsers();
+    List<Iterable<User>> getAllUsers();
 
+    Optional<User> getUserById(long id);
     void postUser(String fullName, int age);
 
-    void deleteUserById(int id);
+    void deleteUserById(long id);
 }
