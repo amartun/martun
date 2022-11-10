@@ -20,6 +20,14 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.31'
     implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
     implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.5'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    implementation group: 'org.webjars', name: 'jquery', version: '3.6.1'
+    implementation group: 'org.webjars', name: 'bootstrap', version: '5.2.2'
+    implementation group: 'org.webjars', name: 'webjars-locator-core', version: '0.52'
+    implementation group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.15.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.7.5'
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.15.RELEASE'
 }
 
 test {

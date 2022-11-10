@@ -1,26 +1,35 @@
 package com.martun.dbentity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
-    public User(String name, Integer age) {
-        this.name = name;
-        this.age = age;
+    @Column(nullable = false, unique = true, length = 45)
+    public String email;
+
+    @Column(nullable = false, length = 64)
+    public String password;
+
+    @Column(name = "first_name", nullable = false, length = 20)
+    public String firstName;
+
+    @Column(name = "last_name", nullable = false, length = 20)
+    public String lastName;
+
+    public User(Long id, String email, String password, String firstName, String lastName) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public User() {
     }
-
-    private String name;
-    private Integer age;
 
     public Long getId() {
         return id;
@@ -30,19 +39,35 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
